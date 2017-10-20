@@ -1,0 +1,30 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>User</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+      <ion-item (click)="profile()">
+          <ion-icon name="contact" item-start></ion-icon>
+            ข้อมูลส่วนตัว
+      </ion-item>
+      <ion-item>
+          <ion-icon name="lock" item-start></ion-icon>
+            การยืนยันตัวตน
+      </ion-item>
+      <ion-item>
+          <ion-icon name="key" item-start></ion-icon>
+            รีเซ๊ตพาสเวิร์ด
+      </ion-item>
+      <ion-item (click)="LogOut()">
+          <ion-icon name="exit" item-start></ion-icon>
+            ออกจากระบบ
+      </ion-item>
+  </ion-list>
+</ion-content>
