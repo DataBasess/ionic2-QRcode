@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController, ToastController, Config, ViewController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, ToastController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 
 @IonicPage()
@@ -15,8 +15,6 @@ export class UserPage {
       , private afAuth: AngularFireAuth
       , private toast : ToastController
       , public alertCtrl: AlertController
-      , public config  :Config 
-      , public viewCtrl: ViewController
   ) {
   }
 
@@ -28,16 +26,14 @@ export class UserPage {
     this.navCtrl.push('ProfilePage');
   }
 
-  resetPassword(){
-    this.navCtrl.push('ResetPasswordPage');
-  }
-
   LogOut(){
     
-    this.afAuth.auth.signOut();
-    //this.navCtrl.canGoBack();
-    window.location.reload();     
-    //this.navCtrl.setRoot('LoginPage');      
+    this.afAuth.auth.signOut().then(()=>{
+      this.navCtrl.setRoot('LoginPage');
+    }).catch(error=>{
+      console.log(error);
+    })
+    
   }
 
 }

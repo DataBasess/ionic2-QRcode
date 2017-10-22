@@ -1,39 +1,33 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
-import { AngularFireAuth } from 'angularfire2/auth';
-import { AngularFireDatabase ,AngularFireList} from 'angularfire2/database';
-import firebase from 'firebase';
+import { NavController } from 'ionic-angular';
+import { BarcodeScanner,BarcodeScannerOptions } from '@ionic-native/barcode-scanner';
 
-
-
-@IonicPage()
 @Component({
   selector: 'page-home',
-  templateUrl: 'home.html',
+  templateUrl: 'home.html'
 })
 export class HomePage {
 
-  uid:string;
-  list={};
-
-  ref:AngularFireList<string>;
-
+  option : BarcodeScannerOptions;
+  results: {};
   constructor(
-    public navCtrl: NavController
-  , public navParams: NavParams
-  , private afAuth: AngularFireAuth
-  , private database: AngularFireDatabase
-  , public alertCtrl: AlertController
-) {
-    this.afAuth.authState.subscribe(data=>{
-      console.log('Data',data.uid);
-      this.uid = data.uid;
-    })
+    public navCtrl: NavController,
+    private barcodeScanner: BarcodeScanner
+  ) {
+
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad HomePage');
-    //this.database.list('')
+  async scan(){
+
+    this.option = {
+      prompt: 'Scan barcode'
+    }
+    this.results = await this.barcodeScanner.scan(this.option);
+    console.log(this.results);
+  }
+
+  async endCode(){
+    const results = await this.barcodeScanner.encode(this.barcodeScanner.Encode.TEXT_TYPE,'http://learnionic2.com');
   }
 
 }

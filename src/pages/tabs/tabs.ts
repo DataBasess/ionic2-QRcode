@@ -13,7 +13,6 @@ export class TabsPage {
   transectionRoot = 'TransectionPage'
   qRcodeRoot = 'QRcodePage'
   userRoot = 'UserPage'
-  homeRoot = 'HomePage';
 
 
   constructor(
@@ -22,18 +21,7 @@ export class TabsPage {
     , private afAuth: AngularFireAuth
     , private toast : ToastController
     , public alertCtrl: AlertController
-  ) {
-    
-  }
-
-  ionViewDidLoad() {
-    
-    
-    console.log('ionViewDidLoad TabsPage ');
-    
-  }
-
-  
+  ) {}
 
   
 
