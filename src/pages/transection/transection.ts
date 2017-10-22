@@ -3,12 +3,6 @@ import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angu
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
 
-/**
- * Generated class for the TransectionPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -28,13 +22,13 @@ export class TransectionPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TransectionPage');
-    this.afAuth.authState.subscribe(data => {      
+    /* this.afAuth.authState.subscribe(data => {      
       this.toast.create({
         message: 'Welcome to App :'+data.email,
-        duration:3000,
+        duration:2000,
         position: 'top' 
       }).present();
-    });
+    }); */
   }
 
 }

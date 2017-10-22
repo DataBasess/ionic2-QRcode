@@ -8,5 +8,70 @@
 
 
 <ion-content padding>
+  <div *ngIf="value!=null">
+      <ion-card>
+          <ion-card-header>
+              รหัสประจำตัวประชาชน :
+          </ion-card-header>
+          <ion-card-content>
+              {{value.personalId}}
+          </ion-card-content>
+      </ion-card>
+      <ion-card>
+          <ion-card-header>
+              คำนำหน้า :
+          </ion-card-header>
+          <ion-card-content>
+              {{value.titleName}}
+          </ion-card-content>
+      </ion-card>
+      <ion-card>
+          <ion-card-header>
+              ชื่อ :
+          </ion-card-header>
+          <ion-card-content>
+              {{value.firstname}}
+          </ion-card-content>
+      </ion-card>
+      <ion-card>
+          <ion-card-header>
+              นามสกุล :
+          </ion-card-header>
+          <ion-card-content>
+              {{value.lastname}}
+          </ion-card-content>
+      </ion-card>      
+  </div>
+
+  <div *ngIf="value==null">
+      <ion-item>
+          <ion-label floating>รหัสประจำตัวประชาชน</ion-label>
+          <ion-input type="text" [(ngModel)]="profile.personalId" ></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label>คำนำหน้า</ion-label>
+          <ion-select [(ngModel)]="profile.titleName" interface="action-sheet">
+            <ion-option value="นาย">นาย</ion-option>
+            <ion-option value="นาง">นาง</ion-option>
+            <ion-option value="นางสาว">นางสาว</ion-option>
+            <!-- <ion-option value="mute_year" (ionSelect)="notificationSelect($event)">Mute for a year</ion-option> -->
+          </ion-select>
+      </ion-item>
+  
+      <ion-item>
+          <ion-label floating>ชื่อ</ion-label>
+          <ion-input type="text" [(ngModel)]="profile.firstname" ></ion-input>
+      </ion-item>
+  
+      <ion-item>
+          <ion-label floating>นามสกุล</ion-label>
+          <ion-input type="text" [(ngModel)]="profile.lastname" ></ion-input>
+      </ion-item>
+  
+      <button ion-button clear block (click)="createProfile()" >บันทึก</button>
+  
+  
+  </div>  
+    
 
 </ion-content>

@@ -5,7 +5,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
 
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { AngularFireModule } from 'angularfire2';
@@ -20,7 +19,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp,{tabsHideOnSubPages:true}),
     // Config FIREBASE_CREDENTIALS
     AngularFireModule.initializeApp(FIREBASE_CREDENTIALS),
     // Config FIREBASE_DATABASE
